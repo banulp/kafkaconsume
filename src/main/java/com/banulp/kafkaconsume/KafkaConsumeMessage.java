@@ -20,7 +20,7 @@ public class KafkaConsumeMessage {
 
     @KafkaListener(topics = "dg-events", groupId = "foo")
     public void listenGroupFoo(String message) {
-        System.out.println("Received Message in group foo: " + message);
+//        System.out.println("Received Message in group foo: " + message);
 
         String fooResourceUrl
                 = "https://api.telegram.org/bot718410719:AAH1woztS1Vma2iTdI7e_I47t4MQxGJ-Kgs/sendmessage?chat_id=-577997719&text=";
