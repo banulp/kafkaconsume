@@ -22,15 +22,15 @@ public class KafkaConsumeMessage {
     public void listenGroupFoo(String message) {
         System.out.println("Received Message in group foo: " + message);
 
-
         String fooResourceUrl
                 = "https://api.telegram.org/bot718410719:AAH1woztS1Vma2iTdI7e_I47t4MQxGJ-Kgs/sendmessage?chat_id=-577997719&text=";
 
-        ResponseEntity<String> response1
-                = restTemplate.getForEntity(fooResourceUrl + message, String.class);
-
         try {
             Map map = mapper.readValue(message, Map.class);
+
+            ResponseEntity<String> response1
+                    = restTemplate.getForEntity(fooResourceUrl + map.get("region") + "-" + map.get("title"), String.class);
+
             ResponseEntity<String> response2
                     = restTemplate.getForEntity(fooResourceUrl + map.get("id"), String.class);
         } catch (JsonProcessingException e) {
