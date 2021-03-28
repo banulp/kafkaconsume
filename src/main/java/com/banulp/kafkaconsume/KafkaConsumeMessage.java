@@ -28,11 +28,9 @@ public class KafkaConsumeMessage {
         try {
             Map map = mapper.readValue(message, Map.class);
 
-            ResponseEntity<String> response1
-                    = restTemplate.getForEntity(fooResourceUrl + map.get("region") + "-" + map.get("title"), String.class);
+            ResponseEntity<String> response
+                    = restTemplate.getForEntity(fooResourceUrl + map.get("region") + "-" + map.get("title") + " " + "https://www.daangn.com/articles/" + map.get("id"), String.class);
 
-            ResponseEntity<String> response2
-                    = restTemplate.getForEntity(fooResourceUrl + map.get("id"), String.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
