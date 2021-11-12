@@ -25,8 +25,9 @@ public class KafkaConsumeMessage {
         String fooResourceUrl
                 = "https://api.telegram.org/bot718410719:AAH1woztS1Vma2iTdI7e_I47t4MQxGJ-Kgs/sendmessage?chat_id=-577997719&text=";
 
-//        https://api.telegram.org/bot2105340863:AAFhExWwNhPOCjjiNnVF6ibE_1us7HDgszA/sendmessage?chat_id=63447517&text=%EC%83%88%EB%A1%AD%EA%B2%8C%ED%95%98%EC%86%8C%EC%84%9C
-
+        if( message.contains("판교") ) {
+            fooResourceUrl = "https://api.telegram.org/bot2105340863:AAFhExWwNhPOCjjiNnVF6ibE_1us7HDgszA/sendmessage?chat_id=63447517&text=";
+        }
 
         try {
             Map map = mapper.readValue(message, Map.class);
